@@ -22,6 +22,6 @@ app.use(bodyParser.json());
 app.use('/user',user.router);
 
 //start server
-const port=process.env.PORT || 3000; //check if the enviorment port is available
-app.listen(port);
+//const port=process.env.PORT || 3000; //check if the enviorment port is available
+app.listen(3000);
 console.log('listening to port 3000');
