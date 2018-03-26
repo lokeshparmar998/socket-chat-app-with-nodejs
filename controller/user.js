@@ -3,13 +3,14 @@ module.exports={
   {
     res.render('home');
   },
-  signUp: function (req,res,next)
+
+ signUp: function (req,res,next)
   {
     res.render('signup');
   },
   signIn: function (req,res,next)
   {
-    console.log('signin was called');
+    res.render('signin');
   },
   Chat: function (req,res,next)
   {

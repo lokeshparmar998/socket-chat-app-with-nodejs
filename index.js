@@ -5,7 +5,6 @@ var bodyParser=require('body-parser');
 var user = require('./routes/user');
 var mongoose = require('mongoose');
 
-
 mongoose.connect('mongodb://localhost/chatApp');
 
 var app=express();
@@ -20,6 +19,7 @@ app.use(bodyParser.json());
 
 /* routes */
 app.use('/user',user.router);
+
 
 //start server
 //const port=process.env.PORT || 3000; //check if the enviorment port is available
