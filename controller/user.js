@@ -1,19 +1,22 @@
 module.exports={
-  Home: function (req,res,next)
+  Home: function (req,res)
   {
     res.render('home');
   },
 
- signUp: function (req,res,next)
+ signUp: function (req,res)
   {
     res.render('signup');
   },
-  signIn: function (req,res,next)
+  signUpPost: function(req,res){
+    console.log("hello from up post");
+  },
+  signIn: function (req,res)
   {
     res.render('signin');
   },
-  Chat: function (req,res,next)
-  {
-    console.log('Chat was called');
-  }
-}
+  signInPost: function(req,res){
+     console.log("hello from in post");
+ }
+
+};
