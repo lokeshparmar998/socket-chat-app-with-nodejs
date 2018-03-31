@@ -1,13 +1,12 @@
 /* require modules */
 var express=require('express');
-var morgan=require('morgan');
 var bodyParser=require('body-parser');
 var user = require('./routes/user');
 var mongoose = require('mongoose');
 var login = require('./models/user');
 
 //connection to the database
-mongoose.connect('mongodb://localhost/chatApp');
+mongoose.connect('mongodb://localhost/chatApp'); // database with name chatApp
 let db = mongoose.connection;
 
 //check connection
@@ -27,9 +26,7 @@ app.set('view engine','ejs');
 
 /* middleware */
 app.use('/assets',express.static('assets')); // name of the folder where my static files are (assets)
-app.use(morgan('dev'));
-
-// parse application/x-www-form-urlencoded
+// parse application
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
