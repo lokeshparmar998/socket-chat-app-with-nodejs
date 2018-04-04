@@ -4,6 +4,7 @@ var bodyParser=require('body-parser');
 var user = require('./routes/user');
 var mongoose = require('mongoose');
 var login = require('./models/user');
+var socket = require('socket.io');
 
 //connection to the database
 mongoose.connect('mongodb://localhost/chatApp'); // database with name chatApp
@@ -35,5 +36,23 @@ app.use('/user',user.router);
 
 //start server
 //const port=process.env.PORT || 3000; //check if the enviorment port is available
-app.listen(3000);
+var server=app.listen(3000);
 console.log('listening to port 3000');
+
+// Socket setup & pass server
+var io = socket(server);
+io.on('connection', (socket) => {
+
+    console.log('made socket connection', socket.id);
+
+    // Handle chat event
+    socket.on('chat', function(data){
+        io.sockets.emit('chat', data);
+    });
+
+    // Handle typing event
+    socket.on('typing', function(data){
+        socket.broadcast.emit('typing', data);
+    });
+
+});

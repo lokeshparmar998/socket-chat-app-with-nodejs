@@ -17,7 +17,6 @@ let user= require('../models/user');
 
 
 
-
 router.get('/home',function(req,res){
   res.render('home');
 });
@@ -67,6 +66,12 @@ router.post('/signup',function(req,res,err){
 router.post('/signin',function(req,res){
   console.log("hello from in");
 });
+
+
+router.get('/chat',function(req,res){
+  res.render('chat');
+});
+
 
 
 
