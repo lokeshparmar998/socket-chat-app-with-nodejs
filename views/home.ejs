@@ -3,17 +3,30 @@
   <head>
     <meta charset="utf-8">
      <link rel="stylesheet" href="../assets/css/home.css">
+     <link rel="shortcut icon" href="../assets/images/favicon.ico">
     <title>HOME</title>
   </head>
   <body>
-    <header class="header">
-    <nav class="nav">
-    <h1> NCU Group Chat</h1>
-    <ul>
-      <li><a href="/user/signin">Sign In</a></li>
-      <li><a href="/user/signup">Sign Up</a></li>
-    </ul>
-    </nav>
-    </header>
+    <% include partials/header.ejs %>
+        <div id="navigation">
+          <ul>
+            <li><a href="/user/signin">Sign In</a></li>
+            <li><a href="/user/signup">Sign Up</a></li>
+          </ul>
+        </div>
+    <div id="content">
+      <div id="content-heading">
+        <h1>About Us</h1>
+      </div>
+      <div id="content-body">
+        <p>
+          You have landed on the group chat application made on simple Html Css and Javascript
+          at backend we have used NodeJs as our serverside scripting language. we provide local authentication using passportjs which is a
+          npm open source module. MongoDb is being used for storing the user credentials.We have followed MVC model that
+          is Model View controlle.
+        </p>
+      </div>
+    </div>
+      <% include partials/footer.ejs %>
   </body>
 </html>

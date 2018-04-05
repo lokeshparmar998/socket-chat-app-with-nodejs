@@ -1,0 +1,26 @@
+#footer{
+  padding-bottom: 2px;
+  padding-top: 2px;
+  background-color: black;
+  color: white;
+}
+#contact{
+  padding-left: 20px;
+}
+#contact-head{
+  text-align: left;
+  padding-left: 22px;
+}
+#social li{
+  padding-bottom: 10px;
+  list-style-type: none;
+}
+#social a{
+  text-decoration: none;
+  color: white;
+}
+#footer-content{
+  text-align: center;
+  font-size: 25px;
+  padding: none;
+}

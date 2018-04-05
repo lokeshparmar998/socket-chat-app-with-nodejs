@@ -1,0 +1,24 @@
+#header{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #28B463;
+  margin:0;
+  border-bottom: #e8491d 3px solid;
+}
+#heading{
+  font-family: serif;
+  font-size: 25px;
+  color: #17F0C6;
+}
+img{
+  height: 75px;
+  width: auto;
+  float: left;
+  padding-right: 28px;
+}
+#span{
+  color: #e8491d;
+  font-weight: bold;
+}

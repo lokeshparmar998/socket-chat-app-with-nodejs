@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>Sign In</title>
     <link rel="stylesheet" href="../assets/css/signin.css">
+     <link rel="shortcut icon" href="../assets/images/favicon.ico">
   </head>
   <body>
+    <% include partials/header.ejs %>
     <h1>User SignIn</h1>
     <form method="post", action="/user/signin">
         <input type="text" name="username" placeholder="username">
@@ -20,6 +22,6 @@
     <script type="text/javascript" src="../assets/javascript/signinVal.js">
 
     </script>
-
+    <% include partials/footer.ejs %>
   </body>
 </html>

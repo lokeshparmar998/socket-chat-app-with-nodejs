@@ -4,9 +4,10 @@
         <meta charset="utf-8">
         <title>SignUp</title>
         <link rel="stylesheet" href="../assets/css/signup.css">
-
+         <link rel="shortcut icon" href="../assets/images/favicon.ico">
     </head>
     <body>
+        <% include partials/header.ejs %>
         <h1>New User Signup</h1>
               <form method='POST', action='/user/signup'>
             <input type="text" name="username" placeholder="username">
@@ -25,6 +26,6 @@
 
         </form>
         <script type="text/javascript" src="../assets/javascript/validation.js"> </script>
-
+        <% include partials/footer.ejs %>
     </body>
 </html>

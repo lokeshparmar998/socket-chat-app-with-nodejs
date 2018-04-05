@@ -7,9 +7,13 @@
         <link href="../assets/css/styles.css" rel="stylesheet" />
     </head>
     <body>
+        <% include partials/header.ejs %>
+        <div class="anch">
+            <a href="#">LogOut</a>
+        </div>
 
         <div id="mario-chat">
-            <h2>NCU Group chat</h2>
+            <h3>NCU Group chat</h3>
             <div id="chat-window">
                 <div id="output"></div>
                 <div id="feedback"></div>
@@ -18,7 +22,7 @@
             <input id="message" type="text" placeholder="Message" />
             <button id="send">Send</button>
         </div>
-
+        <% include partials/footer.ejs %>
 
     </body>
     <script src="../assets/javascript/chat.js"></script>
