@@ -17,7 +17,7 @@ const passport=require('passport');
 //router.post('/chat',UserController.Chat);
 
 
-
+//get request
 router.get('/home',function(req,res){
   res.render('home');
 });
@@ -30,6 +30,16 @@ router.get('/signup',function(req,res){
   res.render('signup');
 });
 
+router.get('/chat',function(req,res){
+  res.render('chat');
+});
+
+router.get('/logout',function(req,res){
+  req.logout();
+  res.redirect('/user/signin');
+});
+
+//post request
 router.post('/signup',function(req,res,err){
   const username = req.body.username;
   const email = req.body.email;
@@ -56,7 +66,7 @@ router.post('/signup',function(req,res,err){
             }
             else {
               console.log('new user added');
-              res.redirect('/user/home');
+              res.redirect('/user/signin');
             }
           });
         }
@@ -71,17 +81,17 @@ router.post('/signin',function(req,res,next){
   })(req,res,next);
 });
 
-router.get('/logout',function(req,res){
-  req.logout();
-  res.redirect('/user/signin');
-});
-
-router.get('/chat',function(req,res){
-  res.render('chat');
-});
-
-
-
+//authentication function
+function ensureAuthenticated(req,res,next){
+  if(req.isAuthenticated())
+  {
+    console.log('login');
+    return next();
+  }else{
+    res.redirect('/user/signin');
+    console.log('not login');
+  }
+}
 
 //exporting module
 module.exports.router=router;
