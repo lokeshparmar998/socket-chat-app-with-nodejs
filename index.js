@@ -5,9 +5,10 @@ var user = require('./routes/user');
 var mongoose = require('mongoose');
 var login = require('./models/user');
 var socket = require('socket.io');
-
+var config = require('./config/database');
+var passport =require('passport');
 //connection to the database
-mongoose.connect('mongodb://localhost/chatApp'); // database with name chatApp
+mongoose.connect(config.database); // database with name chatApp
 let db = mongoose.connection;
 
 //check connection
@@ -31,9 +32,21 @@ app.use('/assets',express.static('assets')); // name of the folder where my stat
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
+
+// passport config
+
+require('./config/passport')(passport);
+app.use(passport.initialize());
+  app.use(passport.session());
+
+
 /* routes */
 app.use('/user',user.router);
 
+app.get('*',function(req,res,next){
+  res.local.user = req.user || null;
+  next();
+});
 //start server
 //const port=process.env.PORT || 3000; //check if the enviorment port is available
 var server=app.listen(3000);

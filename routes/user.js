@@ -3,6 +3,7 @@ const router=express.Router();
 const UserController=require('../controller/user');
 const bcrypt =require('bcryptjs');
 let user= require('../models/user');
+const passport=require('passport');
 
 
 /* routing */
@@ -63,10 +64,17 @@ router.post('/signup',function(req,res,err){
     });
 });
 
-router.post('/signin',function(req,res){
-  console.log("hello from in");
+router.post('/signin',function(req,res,next){
+  passport.authenticate('local',{
+    successRedirect: '/user/chat',
+    failureRedirect: '/user/signup'
+  })(req,res,next);
 });
 
+router.get('/logout',function(req,res){
+  req.logout();
+  res.redirect('/user/signin');
+});
 
 router.get('/chat',function(req,res){
   res.render('chat');
