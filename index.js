@@ -7,6 +7,7 @@ var login = require('./models/user');
 var socket = require('socket.io');
 var config = require('./config/database');
 var passport =require('passport');
+
 //connection to the database
 mongoose.connect(config.database); // database with name chatApp
 let db = mongoose.connection;

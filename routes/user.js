@@ -39,6 +39,9 @@ router.get('/logout',function(req,res){
   res.redirect('/user/signin');
 });
 
+router.get('/change',function(req,res){
+  res.render('change');
+});
 //post request
 router.post('/signup',function(req,res,err){
   const username = req.body.username;
@@ -81,6 +84,34 @@ router.post('/signin',function(req,res,next){
   })(req,res,next);
 });
 
+router.post('/change',function(req,res,next){
+  var email = req.body.Email;
+  var current_password=req.body.current_password;
+  var new_password=req.body.new_password;
+  var confirm_password=req.body.confirm_password;
+
+
+  if(new_password == confirm_password){
+    console.log('new password matches');
+    user.findOne({email:email, password:current_password} , function(err){
+      if(err){
+        throw err;
+      }
+      else{
+      User.update({ password: current_password}, {
+           $set: {
+                password: new_password
+                 }
+             });
+             console.log('password updated');
+ }
+});
+  }
+  else{
+    console.log('worng');
+    res.redirect('change');
+  }
+});
 //authentication function
 function ensureAuthenticated(req,res,next){
   if(req.isAuthenticated())
